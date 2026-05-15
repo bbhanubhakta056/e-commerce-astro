@@ -124,10 +124,10 @@ import { siteConfig } from '../data/siteConfig';
       <h2 class="font-serif text-3xl font-bold text-neutral-900 text-center mb-10">Inside Our Showroom</h2>
       
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[1, 2, 3, 4].map(i => (
+        {['bookshelf', 'sofa-main', 'table', 'rug'].map(i => (
           <div class="aspect-square rounded-2xl overflow-hidden bg-stone-200">
             <img 
-              src={`/images/shop/shop-${i}.jpg`} 
+              src={`/src/assets/images/products/${i}.jpg`} 
               alt={`Showroom view ${i}`}
               class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
               loading="lazy"
