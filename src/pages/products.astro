@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { products, categories } from '../data/products';
+import { filterProducts } from '../utils/filters';
+
+// Get URL search params (Astro-specific way)
+const url = new URL(Astro.request.url);
+const selectedCategory = url.searchParams.get('category') || 'all';
+const searchQuery = url.searchParams.get('search') || '';
+const sortBy = url.searchParams.get('sort') || 'newest';
+
+const filteredProducts = filterProducts(products, {
+  category: selectedCategory,
+  search: searchQuery,
+  sort: sortBy
+});
+---
+
+<BaseLayout 
+  title="Shop Products - Furniture, Lighting & Decor"
+  description="Browse our complete collection of premium furniture, designer lighting, and home decor products."
+>
+  
+  <!-- Page Header -->
+  <section class="bg-stone-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 mb-4">Our Products</h1>
+      <p class="text-stone-600 text-lg">Curated pieces for every space</p>
+    </div>
+  </section>
+
+  <!-- Filters + Products -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Filter Bar -->
+      <div class="flex flex-col md:flex-row gap-4 mb-8 bg-stone-50 p-4 rounded-2xl">
+        
+        <!-- Category Filter -->
+        <div class="flex flex-wrap gap-2">
+          <a 
+            href="/products" 
+            class={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              selectedCategory === 'all' 
+                ? 'bg-brand-600 text-white' 
+                : 'bg-white text-stone-600 hover:bg-stone-200'
+            }`}
+          >
+            All
+          </a>
+          {categories.map(cat => (
+            <a 
+              href={`/products?category=${cat.id}`}
+              class={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                selectedCategory === cat.id 
+                  ? 'bg-brand-600 text-white' 
+                  : 'bg-white text-stone-600 hover:bg-stone-200'
+              }`}
+            >
+              {cat.icon} {cat.label}
+            </a>
+          ))}
+        </div>
+
+        <!-- Search + Sort (Client-side enhancements) -->
+        <div class="flex gap-3 ml-auto">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search products..." 
+            value={searchQuery}
+            class="px-4 py-2 rounded-lg border border-stone-300 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
+          />
+          <select 
+            id="sort-select" 
+            class="px-4 py-2 rounded-lg border border-stone-300 text-sm bg-white focus:border-brand-500 outline-none"
+          >
+            <option value="newest" selected={sortBy === 'newest'}>Newest</option>
+            <option value="name-asc">Name A-Z</option>
+            <option value="name-desc">Name Z-A</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Results Count -->
+      <p class="text-sm text-stone-500 mb-6">
+        Showing {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
+        {selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.label || selectedCategory}`}
+      </p>
+
+      <!-- Product Grid -->
+      {filteredProducts.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredProducts.map(product => (
+            <ProductCard product={product} />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20">
+          <span class="text-6xl block mb-4">🔍</span>
+          <h3 class="text-2xl font-serif font-semibold text-neutral-900 mb-2">No products found</h3>
+          <p class="text-stone-500 mb-6">Try adjusting your search or filters</p>
+          <a href="/products" class="text-brand-600 font-semibold hover:text-brand-700">
+            Clear all filters →
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Trade CTA -->
+  <section class="py-16 bg-brand-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="font-serif text-2xl md:text-3xl font-bold text-white mb-4">
+        Looking for Bulk Orders?
+      </h3>
+      <p class="text-brand-100 mb-6">
+        Architects, interior designers, and businesses get exclusive trade pricing and dedicated support.
+      </p>
+      <a 
+        href="/contact" 
+        class="inline-flex items-center gap-2 bg-white text-brand-600 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition-all"
+      >
+        Register as Trade Partner
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  // Client-side search and sort
+  const searchInput = document.getElementById('search-input');
+  const sortSelect = document.getElementById('sort-select');
+  
+  function updateURL() {
+    const params = new URLSearchParams(window.location.search);
+    const search = searchInput?.value || '';
+    const sort = sortSelect?.value || 'newest';
+    
+    if (search) params.set('search', search);
+    else params.delete('search');
+    
+    if (sort && sort !== 'newest') params.set('sort', sort);
+    else params.delete('sort');
+    
+    window.location.search = params.toString();
+  }
+  
+  searchInput?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') updateURL();
+  });
+  
+  sortSelect?.addEventListener('change', updateURL);
+</script>

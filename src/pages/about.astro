@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/siteConfig';
+---
+
+<BaseLayout 
+  title="About Us - Our Story"
+  description="Learn about Elegance Interiors - premium interior shop in Bangalore since 2010."
+>
+  
+  <!-- Hero -->
+  <section class="bg-stone-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 mb-4">About Us</h1>
+      <p class="text-stone-600 text-lg max-w-2xl mx-auto">
+        Curating beautiful spaces since 2010
+      </p>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <h2 class="font-serif text-3xl font-bold text-neutral-900">Our Story</h2>
+        <p class="text-stone-600 leading-relaxed">
+          Elegance Interiors was born from a simple belief: that every space deserves to be beautiful. 
+          Founded in 2010 in the heart of Bangalore, we started as a small boutique offering handpicked 
+          furniture and decor pieces to discerning homeowners.
+        </p>
+        <p class="text-stone-600 leading-relaxed">
+          Over the years, we've grown into one of Bangalore's trusted destinations for premium interior 
+          products, serving over 500 happy clients from homeowners to architects and commercial developers.
+        </p>
+        
+        <h3 class="font-serif text-2xl font-bold text-neutral-900 mt-8">What We Believe</h3>
+        <ul class="space-y-3">
+          <li class="flex gap-3">
+            <span class="text-brand-500 font-bold">✦</span>
+            <span><strong>Quality First:</strong> Every product in our collection is personally vetted for craftsmanship and durability.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-brand-500 font-bold">✦</span>
+            <span><strong>Curated, Not Cluttered:</strong> We carefully select pieces that are timeless, not trendy.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-brand-500 font-bold">✦</span>
+            <span><strong>Honest Pricing:</strong> Premium quality shouldn't break the bank. We offer fair, transparent prices.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-brand-500 font-bold">✦</span>
+            <span><strong>Relationship Over Transaction:</strong> We build long-term relationships with our clients and artisans.</span>
+          </li>
+        </ul>
+
+        <h3 class="font-serif text-2xl font-bold text-neutral-900 mt-8">Visit Us</h3>
+        <p class="text-stone-600">
+          Our showroom in {siteConfig.address.city} is designed to inspire. Walk through curated room 
+          setups, touch the fabrics, and experience the quality firsthand. Our design consultants are 
+          always ready to help you make the right choices.
+        </p>
+        <a href="/location" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700">
+          Find us on the map →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-16 bg-stone-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-bold text-brand-600">14+</p>
+          <p class="text-stone-600 mt-2">Years Experience</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-brand-600">500+</p>
+          <p class="text-stone-600 mt-2">Happy Clients</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-brand-600">1000+</p>
+          <p class="text-stone-600 mt-2">Products Curated</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-brand-600">50+</p>
+          <p class="text-stone-600 mt-2">Artisan Partners</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

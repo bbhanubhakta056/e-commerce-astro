@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import { products } from '../data/products';
+import { testimonials } from '../data/testimonials';
+import { services } from '../data/services';
+import { siteConfig } from '../data/siteConfig';
+
+const featuredProducts = products.filter(p => p.featured);
+const featuredTestimonials = testimonials.slice(0, 3);
+---
+
+<BaseLayout 
+  title="Premium Interior Shop - Furniture, Lighting & Decor"
+  description="Discover curated furniture, designer lighting, and unique decor at Elegance Interiors. Visit our Banglore showroom or shop online."
+>
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-stone-900 via-stone-800 to-neutral-900 overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 opacity-30">
+      <img 
+        src="/images/shop-hero.webp" 
+        alt="Elegance Interiors Showroom" 
+        class="w-full h-full object-cover"
+        loading="eager"
+        onerror="this.style.display='none';"
+      />
+    </div>
+    
+    <!-- Decorative Elements -->
+    <div class="absolute top-20 left-10 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-warm-400/5 rounded-full blur-3xl"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="max-w-3xl animate-slide-up">
+        <span class="text-brand-400 text-sm md:text-base font-medium tracking-widest uppercase mb-4 block">
+          Since 2010 • {siteConfig.address.city}
+        </span>
+        <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+          Curating <span class="text-brand-400">Beautiful</span> Spaces
+        </h1>
+        <p class="text-lg md:text-xl text-stone-300 leading-relaxed mb-8 max-w-xl">
+          Premium furniture, designer lighting, and unique decor sourced from India's finest artisans. Let us help you create spaces you'll love.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a 
+            href="/products" 
+            class="inline-flex items-center justify-center gap-2 bg-brand-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-700 transition-all hover:shadow-lg hover:-translate-y-0.5"
+          >
+            Explore Products
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a 
+            href="/contact" 
+            class="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all"
+          >
+            Get Free Quote
+          </a>
+        </div>
+        
+        <!-- Stats -->
+        <div class="flex flex-wrap gap-8 mt-16">
+          <div>
+            <p class="text-3xl font-bold text-white">500+</p>
+            <p class="text-stone-400 text-sm">Happy Clients</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">14</p>
+            <p class="text-stone-400 text-sm">Years Experience</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">1,000+</p>
+            <p class="text-stone-400 text-sm">Products Curated</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <a href="#categories" class="text-white/60 hover:text-white transition-colors" aria-label="Scroll down">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Category Section -->
+  <section id="categories" class="py-20 bg-stone-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Shop by Category</h2>
+        <p class="text-stone-500 max-w-xl mx-auto">Explore our carefully curated collections for every corner of your home</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {[
+          { label: 'Furniture', icon: '🪑', href: '/products?category=furniture', count: '250+ Items' },
+          { label: 'Lighting', icon: '💡', href: '/products?category=lighting', count: '180+ Items' },
+          { label: 'Home Decor', icon: '🏺', href: '/products?category=home-decor', count: '400+ Items' },
+          { label: 'Textiles', icon: '🧶', href: '/products?category=textiles', count: '200+ Items' },
+        ].map(cat => (
+          <a 
+            href={cat.href} 
+            class="group bg-white rounded-2xl p-6 md:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          >
+            <span class="text-4xl md:text-5xl block mb-4 group-hover:scale-110 transition-transform duration-300">{cat.icon}</span>
+            <h3 class="font-serif text-lg md:text-xl font-semibold text-neutral-900 mb-1">{cat.label}</h3>
+            <p class="text-sm text-stone-500">{cat.count}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-12">
+        <div>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-2">Featured Products</h2>
+          <p class="text-stone-500">Handpicked pieces our customers love</p>
+        </div>
+        <a href="/products" class="text-brand-600 font-semibold hover:text-brand-700 inline-flex items-center gap-2">
+          View All Products
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {featuredProducts.map(product => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="py-20 bg-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Our Services</h2>
+        <p class="text-stone-500 max-w-xl mx-auto">Beyond products, we offer complete interior solutions</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {services.slice(0, 3).map(service => (
+          <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group">
+            <span class="text-4xl block mb-4">{service.icon}</span>
+            <h3 class="font-serif text-xl font-semibold text-neutral-900 mb-3">{service.title}</h3>
+            <p class="text-stone-600 text-sm leading-relaxed mb-6">{service.subtitle}</p>
+            <a 
+              href={`/services#${service.id}`} 
+              class="text-brand-600 font-medium text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all"
+            >
+              Learn More
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+      
+      <div class="text-center">
+        <a 
+          href="/services" 
+          class="inline-flex items-center gap-2 bg-white text-brand-600 border-2 border-brand-200 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition-all"
+        >
+          View All Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-4">What Our Clients Say</h2>
+        <p class="text-stone-500">Trusted by homeowners, architects, and interior designers</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {featuredTestimonials.map(testimonial => (
+          <TestimonialCard testimonial={testimonial} />
+        ))}
+      </div>
+      
+      <div class="text-center mt-8">
+        <a 
+          href="/testimonials" 
+          class="text-brand-600 font-semibold hover:text-brand-700 inline-flex items-center gap-2"
+        >
+          Read All Reviews
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-brand-600 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-80 h-80 bg-warm-400 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-serif text-3xl md:text-5xl font-bold text-white mb-6">
+        Ready to Transform Your Space?
+      </h2>
+      <p class="text-brand-100 text-lg mb-8 max-w-xl mx-auto">
+        Visit our showroom or book a consultation. Our design experts are ready to bring your vision to life.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/contact" 
+          class="inline-flex items-center justify-center gap-2 bg-white text-brand-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-50 transition-all shadow-lg hover:shadow-xl"
+        >
+          Book Free Consultation
+        </a>
+        <a 
+          href="/location" 
+          class="inline-flex items-center justify-center gap-2 bg-brand-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-800 transition-all"
+        >
+          Visit Our Store
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
