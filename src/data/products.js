@@ -10,11 +10,11 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/sofa-main.jpg',
-      '/src/assets/images/products/sofa-main.jpg',
-      '/src/assets/images/products/sofa-main.jpg'
+      '/images/products/sofa-main.jpg',
+      '/images/products/sofa-main.jpg',
+      '/images/products/sofa-main.jpg'
     ],
-    thumbnail: '/src/assets/images/products/sofa-main.jpg',
+    thumbnail: '/images/products/sofa-main.jpg',
     dimensions: '78" W x 35" D x 32" H',
     material: 'Solid Wood Frame, Velvet Upholstery',
     colors: ['Emerald Green', 'Navy Blue', 'Charcoal Grey'],
@@ -39,11 +39,11 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/lamp.jpg',
-      '/src/assets/images/products/lamp.jpg',
-      '/src/assets/images/products/lamp.jpg'
+      '/images/products/lamp.jpg',
+      '/images/products/lamp.jpg',
+      '/images/products/lamp.jpg'
     ],
-    thumbnail: '/src/assets/images/products/lamp.jpg',
+    thumbnail: '/images/products/lamp.jpg',
     dimensions: '65" H x 18" W (Base)',
     material: 'Brass-plated Steel, Frosted Glass Shade',
     colors: ['Brass', 'Matte Black'],
@@ -68,10 +68,10 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/macrame.jpg',
-      '/src/assets/images/products/macrame.jpg'
+      '/images/products/macrame.jpg',
+      '/images/products/macrame.jpg'
     ],
-    thumbnail: '/src/assets/images/products/macrame.jpg',
+    thumbnail: '/images/products/macrame.jpg',
     dimensions: '36" W x 48" H',
     material: '100% Cotton Cord, Wooden Dowel',
     colors: ['Natural', 'Ivory'],
@@ -96,11 +96,11 @@ export const products = [
     displayPrice: true,
     stock: 'made-to-order',
     images: [
-      '/src/assets/images/products/table.jpg',
-      '/src/assets/images/products/table.jpg',
-      '/src/assets/images/products/table.jpg'
+      '/images/products/table.jpg',
+      '/images/products/table.jpg',
+      '/images/products/table.jpg'
     ],
-    thumbnail: '/src/assets/images/products/table.jpg',
+    thumbnail: '/images/products/table.jpg',
     dimensions: '48" W x 24" D x 16" H',
     material: 'Terrazzo Top, Powder-coated Steel Legs',
     colors: ['White Terrazzo', 'Grey Terrazzo', 'Pink Terrazzo'],
@@ -125,11 +125,11 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/cushions.jpg',
-      '/src/assets/images/products/cushions.jpg',
-      '/src/assets/images/products/cushions.jpg'
+      '/images/products/cushions.jpg',
+      '/images/products/cushions.jpg',
+      '/images/products/cushions.jpg'
     ],
-    thumbnail: '/src/assets/images/products/cushions.jpg',
+    thumbnail: '/images/products/cushions.jpg',
     dimensions: '18" x 18"',
     material: '100% European Linen, Feather Insert',
     colors: ['Sand', 'Dusty Blue', 'Sage Green', 'Terracotta'],
@@ -154,10 +154,10 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/pendant.jpg',
-      '/src/assets/images/products/pendant.jpg'
+      '/images/products/pendant.jpg',
+      '/images/products/pendant.jpg'
     ],
-    thumbnail: '/src/assets/images/products/pendant.jpg',
+    thumbnail: '/images/products/pendant.jpg',
     dimensions: '18" Diameter x 14" H',
     material: 'Natural Rattan, Metal Fittings',
     colors: ['Natural Rattan'],
@@ -182,11 +182,11 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/vases.jpg',
-      '/src/assets/images/products/vases.jpg',
-      '/src/assets/images/products/vases.jpg'
+      '/images/products/vases.jpg',
+      '/images/products/vases.jpg',
+      '/images/products/vases.jpg'
     ],
-    thumbnail: '/src/assets/images/products/vases.jpg',
+    thumbnail: '/images/products/vases.jpg',
     dimensions: 'Large: 12" H, Small: 8" H',
     material: 'Stoneware Ceramic, Reactive Glaze',
     colors: ['Matte White', 'Speckled Beige', 'Charcoal'],
@@ -211,10 +211,10 @@ export const products = [
     displayPrice: true,
     stock: 'limited-stock',
     images: [
-      '/src/assets/images/products/bookshelf.jpg',
-      '/src/assets/images/products/bookshelf.jpg'
+      '/images/products/bookshelf.jpg',
+      '/images/products/bookshelf.jpg'
     ],
-    thumbnail: '/src/assets/images/products/bookshelf.jpg',
+    thumbnail: '/images/products/bookshelf.jpg',
     dimensions: '60" W x 16" D x 72" H',
     material: 'Reclaimed Teak Wood, Black Iron Frame',
     colors: ['Natural Teak / Black'],
@@ -239,10 +239,10 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/sconce.jpg',
-      '/src/assets/images/products/sconce.jpg'
+      '/images/products/sconce.jpg',
+      '/images/products/sconce.jpg'
     ],
-    thumbnail: '/src/assets/images/products/sconce.jpg',
+    thumbnail: '/images/products/sconce.jpg',
     dimensions: '8" H x 6" W x 4" D',
     material: 'Solid Brass, Opal Glass Globe',
     colors: ['Polished Brass', 'Antique Brass'],
@@ -267,11 +267,11 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/rug.jpg',
-      '/src/assets/images/products/rug.jpg',
-      '/src/assets/images/products/rug.jpg'
+      '/images/products/rug.jpg',
+      '/images/products/rug.jpg',
+      '/images/products/rug.jpg'
     ],
-    thumbnail: '/src/assets/images/products/rug.jpg',
+    thumbnail: '/images/products/rug.jpg',
     dimensions: '5\' x 8\' (also available in 4\'x6\', 6\'x9\')',
     material: 'Hand-braided Jute, Cotton Border',
     colors: ['Natural Jute', 'Charcoal Border'],
@@ -296,10 +296,10 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/console.jpg',
-      '/src/assets/images/products/console.jpg'
+      '/images/products/console.jpg',
+      '/images/products/console.jpg'
     ],
-    thumbnail: '/src/assets/images/products/console.jpg',
+    thumbnail: '/images/products/console.jpg',
     dimensions: '48" W x 14" D x 32" H',
     material: 'Solid Mango Wood, Hairpin Legs',
     colors: ['Natural Wood', 'Walnut Stain', 'Black Stain'],
@@ -324,10 +324,10 @@ export const products = [
     displayPrice: true,
     stock: 'in-stock',
     images: [
-      '/src/assets/images/products/candles.jpg',
-      '/src/assets/images/products/candles.jpg'
+      '/images/products/candles.jpg',
+      '/images/products/candles.jpg'
     ],
-    thumbnail: '/src/assets/images/products/candles.jpg',
+    thumbnail: '/images/products/candles.jpg',
     dimensions: '8 oz, 50-hour burn time',
     material: '100% Soy Wax, Cotton Wick, Glass Jar',
     colors: ['Clear Glass'],
