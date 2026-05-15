@@ -4,7 +4,7 @@
 
 <script setup>
 import { onMounted } from "vue";
-import Lenis from "@studio-freight/lenis";
+import Lenis from 'lenis';
 
 onMounted(() => {
   const lenis = new Lenis({
